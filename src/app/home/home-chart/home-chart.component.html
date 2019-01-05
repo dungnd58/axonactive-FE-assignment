@@ -2,9 +2,11 @@
   <div class="c-chart-current-symbol" *ngIf="currentSymbol">
     {{currentSymbol || 'Symbol not found'}}
   </div>
-  <div class="c-chart-table table">
 
-  </div>
+  <ng-container *ngIf="!isQuotesLoading && quotes">
+    <app-chart-table [quotes]="quotes"></app-chart-table>
+  </ng-container>
+
   <div class="c-chart-footer footer">
     <div class="footer-marketstatus" *ngIf="!isMarketLoading">
       <label class="footer-marketstatus-label">Market Status</label>

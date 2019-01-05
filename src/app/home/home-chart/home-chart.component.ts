@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeChartService } from './home-chart.service';
-import { Quote, Quota, MarketStatus, ConversionResult } from './home-chart.model';
+import { Quote, Quota, MarketStatus } from './home-chart.model';
 
 @Component({
   selector: 'app-home-chart',
@@ -10,12 +10,11 @@ import { Quote, Quota, MarketStatus, ConversionResult } from './home-chart.model
 export class HomeChartComponent implements OnInit {
   quota: Quota;
   marketStatus: MarketStatus;
-  quote: Quote[];
-  conversionResult: ConversionResult;
+  quotes: Quote[];
 
   isQuotaLoading: boolean;
   isMarketLoading: boolean;
-  isQuoteLoading: boolean;
+  isQuotesLoading: boolean;
   isConvertLoading: boolean;
 
   currentSymbol: string;
@@ -27,10 +26,9 @@ export class HomeChartComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.getMarketStatus();
-    // this.getQuotes();
-    // this.getConvert();
-    //this.getQuota();
+    this.getMarketStatus();
+    this.getQuotes();
+    this.getQuota();
   }
 
   getMarketStatus() {
@@ -41,36 +39,21 @@ export class HomeChartComponent implements OnInit {
         this.isMarketLoading = false;
       },
       error => {
-        console.log('Something wrong');
         this.isMarketLoading = false;
       }
     )
   }
 
   getQuotes() {
-    let pairs = "EURUSD,GBPJPY,AUDUSD";
+    this.isQuotesLoading = true;
+    let pairs = "*";
     this._ChartService.getQuotes(pairs).subscribe(
       data => {
-        console.log(data);
+        this.quotes = data;
+        this.isQuotesLoading = false;
       },
       error => {
-        console.log('Something wrong');
-      }
-    )
-  }
-
-  getConvert() {
-    let params = {
-      from: "USD",
-      to: "EUR",
-      quantity: 100
-    }
-    this._ChartService.getConvert(params).subscribe(
-      data => {
-        console.log(data);
-      },
-      error => {
-        console.log('Something wrong');
+        this.isQuotesLoading = false;
       }
     )
   }
@@ -83,7 +66,6 @@ export class HomeChartComponent implements OnInit {
         this.isQuotaLoading = false;
       },
       error => {
-        console.log('Something wrong');
         this.isQuotaLoading = false;
       }
     )

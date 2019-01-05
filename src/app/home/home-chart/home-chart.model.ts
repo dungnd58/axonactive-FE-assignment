@@ -1,14 +1,8 @@
 export interface Quote {
     bid: number;
     ask: number;
-    float: number;
+    price: number;
     symbol: string;
-    timestamp: number;
-}
-
-export interface ConversionResult {
-    value: number;
-    text: string;
     timestamp: number;
 }
 
