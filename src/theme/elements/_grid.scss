@@ -1,0 +1,23 @@
+//
+// Grid system
+// --------------------------------------------------
+
+// Container widths
+//
+// Set the container width, and override it for fixed navbars in media queries.
+
+.container {
+    @include container-fixed;
+
+    @include respond-min($screen-sm-w) {
+        width: $container-sm;
+    }
+
+    @include respond-min($screen-md-w) {
+        width: $container-md;
+    }
+
+    @include respond-min($screen-lg-w) {
+        width: $container-lg;
+    }
+}

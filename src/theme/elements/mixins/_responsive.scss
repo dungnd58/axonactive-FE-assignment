@@ -1,0 +1,21 @@
+// Respond above.
+@mixin respond-min($breakpoint) {
+	// Write the media query.
+	@media (min-width: $breakpoint) {
+		@content;
+	}
+}
+
+@mixin respond-max($breakpoint) {
+	// Write the media query.
+	@media (max-width: ($breakpoint - 1)) {
+		@content;
+	}
+}
+
+@mixin respond-min-max($lower-breakpoint, $upper-breakpoint) {
+	// Write the media query.
+	@media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+		@content;
+	}
+}
