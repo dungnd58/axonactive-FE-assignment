@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeSelectionBoxComponent } from './home-selection-box.component';
+import { HomeSymbolComponent } from './home-symbol.component';
 
-describe('HomeSelectionBoxComponent', () => {
-  let component: HomeSelectionBoxComponent;
-  let fixture: ComponentFixture<HomeSelectionBoxComponent>;
+describe('HomeSymbolComponent', () => {
+  let component: HomeSymbolComponent;
+  let fixture: ComponentFixture<HomeSymbolComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeSelectionBoxComponent ]
+      declarations: [ HomeSymbolComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeSelectionBoxComponent);
+    fixture = TestBed.createComponent(HomeSymbolComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

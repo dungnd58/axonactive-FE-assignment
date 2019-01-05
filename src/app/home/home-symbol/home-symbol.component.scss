@@ -1,0 +1,13 @@
+@import '../../../theme/theme-variables';
+
+.c-symbol {
+	margin-bottom: 30px;
+	text-align: right;
+	select {
+		width: 100%;
+		max-width: 300px;
+    padding: 10px 5px;
+		border-radius: 5px;
+		font-size: $font-size-base;
+	}
+}

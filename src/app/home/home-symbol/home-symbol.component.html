@@ -1,0 +1,9 @@
+<div class="c-symbol" *ngIf="!isLoading">
+  <ng-container *ngIf="symbols && symbols.length">
+    <select [(ngModel)]="this.currentSymbol" (change)="selectSymbol($event)">
+      <option *ngFor="let symbol of symbols" value="{{symbol}}">
+        {{symbol}}
+      </option>
+    </select>
+  </ng-container>
+</div>

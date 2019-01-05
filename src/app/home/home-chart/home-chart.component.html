@@ -1,3 +1,22 @@
-<p>
-  home-chart works!
-</p>
+<div class="c-chart">
+  <div class="c-chart-current-symbol" *ngIf="currentSymbol">
+    {{currentSymbol || 'Symbol not found'}}
+  </div>
+  <div class="c-chart-table table">
+
+  </div>
+  <div class="c-chart-footer footer">
+    <div class="footer-marketstatus" *ngIf="!isMarketLoading">
+      <label class="footer-marketstatus-label">Market Status</label>
+      <div class="footer-marketstatus-info info">
+          <span class="info-icon" [ngClass]="marketStatus?.market_is_open ? 'on' : 'off'"></span>
+          <span class="info-text">
+            The market is currently {{marketStatus?.market_is_open ? 'OPEN' : 'CLOSE'}}
+          </span>
+      </div>
+    </div>
+    <div class="footer-quota" *ngIf="!isQuotaLoading">
+      <span>{{quota?.quota_remaining || 0}} of {{quota?.quota_limit || 0}} API calls left</span>
+    </div>
+  </div>
+</div>
