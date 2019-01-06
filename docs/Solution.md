@@ -2,9 +2,9 @@
 
 ## What I used to implement the SPA Web App
 
-**JS Framework**: Angular 7
-**Dependencies**: Angular Marterial 7, Typescript 3 and [Ng2-Chart](https://github.com/valor-software/ng2-charts)
-**Node version**: v10.15.0
+- **JS Framework**: Angular 7.
+- **Dependencies**: Angular Marterial 7, Typescript 3 & [Ng2-Chart](https://github.com/valor-software/ng2-charts).
+- **Node version**: v10.15.0.
 
 ## What I completed
 
