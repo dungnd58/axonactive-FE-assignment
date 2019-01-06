@@ -29,5 +29,15 @@
 - Updating chart data real time using Websocket: I could only register 1Forgex account with FREE PLAN. It does not supported Websocket streaming.
 - Show data in only 1 hour: The returned data have same timestamp *1546757784 ~ Mon Jan 19 1970 04:39:17 GMT+0700*. Therefore, I coudn't have correct data to filter in current 1 hour.
 
+## Requirement
+1. Node: v10
+2. Npm: v6.4.1
+3. Angular CLI: v7
+
+## Intallation
+1. Open the project in command line.
+3. Run `npm install -g @angular/cli`.
+2. Run `npm install`.
+
 ## How to run the project
 Run `ng serve --open` or `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

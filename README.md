@@ -6,6 +6,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 [Please click here to see the documentation](https://github.com/dungnd58/axonactive-FE-assignment/blob/master/docs/Solution.md).
 
+## Requirement
+1. Node: v10
+2. Npm: v6.4.1
+3. Angular CLI: v7
+
+## Intallation
+1. Open the project in command line.
+3. Run `npm install -g @angular/cli`.
+2. Run `npm install`.
+
 ## Development server
 
 Run `ng serve --open` or `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
