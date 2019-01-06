@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Documentation
 
-[Please click here to see the documentation]().
+[Please click here to see the documentation](https://github.com/dungnd58/axonactive-FE-assignment/blob/master/docs/Solution.md).
 
 ## Development server
 
