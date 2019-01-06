@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home-routing.module';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { MatSelectModule } from '@angular/material';
 
 import { HomeComponent } from './home.component';
 import { HomeChartComponent } from './home-chart/home-chart.component';
@@ -16,6 +17,7 @@ import { ChartTableComponent } from './home-chart/chart-table/chart-table.compon
     CommonModule,
     FormsModule,
     ChartsModule,
+    MatSelectModule,
     HomeRoutingModule
   ],
   declarations: [

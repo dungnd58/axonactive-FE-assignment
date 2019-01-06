@@ -10,8 +10,6 @@ import { DatePipe } from '@angular/common';
 })
 export class ChartTableComponent implements OnInit {
   @Input() quotes: Quote[];
-  // lineChartLabels: Array<any> = ['Time'];
-  // lineChart
   lineChartData:Array<any> = [
     {data: [], label: 'Price'},
     {data: [], label: 'Ask'},

@@ -1,11 +1,17 @@
 <div class="c-chart">
-  <div class="c-chart-current-symbol" *ngIf="currentSymbol">
-    {{currentSymbol || 'Symbol not found'}}
+  <div class="c-chart-current-symbol" *ngIf="currentSymbols">
+    {{currentSymbols}}
   </div>
 
-  <ng-container *ngIf="!isQuotesLoading && quotes">
+  <ng-container *ngIf="!isQuotesLoading && quotes; else loading">
     <app-chart-table [quotes]="quotes"></app-chart-table>
   </ng-container>
+
+  <ng-template #loading>
+    <div class="c-loading-spinner">
+      <img src="../../../assets/loading.svg"/>
+    </div>
+  </ng-template>
 
   <div class="c-chart-footer footer">
     <div class="footer-marketstatus" *ngIf="!isMarketLoading">

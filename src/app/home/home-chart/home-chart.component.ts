@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeChartService } from './home-chart.service';
 import { Quote, Quota, MarketStatus } from './home-chart.model';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home-chart',
@@ -17,18 +19,23 @@ export class HomeChartComponent implements OnInit {
   isQuotesLoading: boolean;
   isConvertLoading: boolean;
 
-  currentSymbol: string;
+  currentSymbols: string;
+  private unsubscribe: Subject<void> = new Subject();
 
   constructor(private _ChartService: HomeChartService) {
-    this._ChartService.resetChart.subscribe(data => {
-      this.currentSymbol = data;
-    })
+    _ChartService.resetChart.pipe(takeUntil(this.unsubscribe)).subscribe(data => {
+      this.currentSymbols = data;
+      this.getMarketStatus();
+      this.getQuotes();
+      this.getQuota();
+    });
   }
 
-  ngOnInit() {
-    this.getMarketStatus();
-    this.getQuotes();
-    this.getQuota();
+  ngOnInit() {}
+
+  ngOnDestroy() {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 
   getMarketStatus() {
@@ -46,7 +53,7 @@ export class HomeChartComponent implements OnInit {
 
   getQuotes() {
     this.isQuotesLoading = true;
-    let pairs = "*";
+    let pairs = this.currentSymbols;
     this._ChartService.getQuotes(pairs).subscribe(
       data => {
         this.quotes = data;

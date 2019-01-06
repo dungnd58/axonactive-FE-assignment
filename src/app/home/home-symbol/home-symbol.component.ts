@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HomeSymbolService } from './home-symbol.service';
 import { HomeChartService } from '../home-chart/home-chart.service';
 
@@ -8,7 +8,7 @@ import { HomeChartService } from '../home-chart/home-chart.service';
   styleUrls: ['./home-symbol.component.scss']
 })
 export class HomeSymbolComponent implements OnInit {
-  currentSymbol: string;
+  currentSymbols: string[];
   symbols: string[];
   isLoading: boolean;
 
@@ -16,6 +16,7 @@ export class HomeSymbolComponent implements OnInit {
     private _ChartService: HomeChartService) { }
 
   ngOnInit() {
+    this.currentSymbols = [];
     this.getSymbols();
   }
 
@@ -25,8 +26,9 @@ export class HomeSymbolComponent implements OnInit {
       data => {
         this.isLoading = false;
         this.symbols = data;
-        this.currentSymbol = this.symbols[0];
-        this._ChartService.resetChart.emit(this.currentSymbol);
+        this.currentSymbols.push(this.symbols[0]);
+        let params = this.currentSymbols.join(',');
+        this._ChartService.resetChart.emit(params);
       },
       error => {
         this.isLoading = false;
@@ -35,6 +37,7 @@ export class HomeSymbolComponent implements OnInit {
   }
 
   selectSymbol(e: any) {
-    this._ChartService.resetChart.emit(this.currentSymbol);
+    let params = this.currentSymbols.join(',');
+    this._ChartService.resetChart.emit(params);
   }
 }

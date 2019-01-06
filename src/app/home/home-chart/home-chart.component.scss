@@ -58,3 +58,16 @@
 		}
 	}
 }
+
+.c-loading-spinner {
+	position: relative;
+	text-align: center;
+	height: 400px;
+
+	img {
+		width: 75px;    
+		position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+	}
+}

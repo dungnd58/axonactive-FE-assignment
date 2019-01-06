@@ -1,9 +1,11 @@
 <div class="c-symbol" *ngIf="!isLoading">
   <ng-container *ngIf="symbols && symbols.length">
-    <select [(ngModel)]="this.currentSymbol" (change)="selectSymbol($event)">
-      <option *ngFor="let symbol of symbols" value="{{symbol}}">
-        {{symbol}}
-      </option>
-    </select>
+    <mat-form-field>
+      <mat-select placeholder="Symbol Pairs" multiple 
+        [(ngModel)]="currentSymbols" 
+        (selectionChange)="selectSymbol($event)">
+        <mat-option *ngFor="let symbol of symbols" [value]="symbol">{{symbol}}</mat-option>
+      </mat-select>
+    </mat-form-field>
   </ng-container>
 </div>
